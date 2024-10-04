@@ -17,17 +17,20 @@ namespace Task_Movie_Serializer.Controller
         static int movieSize;
 
        
-        public MovieManager()
+        public MovieManager()  //Constructo with Deserializer
         {
             movies = Serializer.DeserializeMovies();
             movieSize = CheckMoviesCount(movies);
         }
 
 
-        public void ToSerialization()
+        public void ToSerialization() //serializer
         {
             Serializer.SerializeMovies(movies);
         }
+
+
+        //Check and return the amount of moives present in the array
         public static int CheckMoviesCount(Movies[] movies)
         {
             int count = 0;
@@ -43,11 +46,14 @@ namespace Task_Movie_Serializer.Controller
         }
 
 
+        //Returning the movieSize which is Movies availble in a array
         public  int GetMovieSize()
         {
             return movieSize;
         }
 
+
+        //Printing the movies
         public  void PrintDetails()
         {
             for (int i = 0; i < movies.Length; i++)
@@ -59,12 +65,16 @@ namespace Task_Movie_Serializer.Controller
             }
         }
 
+
+        //Adding the movies
         public void AddMovies(int moviesId, string movieName, string movieGenre, int movieYear)
         {
             movies[movieSize] = new Movies(moviesId, movieName, movieGenre, movieYear);
             movieSize++;
         }
 
+
+        //Claering the movies
         public void ClearMovie()
         {
             movies = new Movies[5];

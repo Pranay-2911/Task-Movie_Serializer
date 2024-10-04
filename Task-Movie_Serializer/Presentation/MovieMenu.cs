@@ -11,7 +11,7 @@ namespace Task_Movie_Serializer.Presentation
 {
     internal class MovieMenu
     {
-        static MovieManager manager = new MovieManager();
+        static MovieManager manager = new MovieManager(); //creating a static object of manager class
         public static void GetMovieMenu()
         {
             
@@ -20,6 +20,8 @@ namespace Task_Movie_Serializer.Presentation
 
             bool check = true;
 
+
+            //TO perform a operations
             while (check)
             {
                 Console.WriteLine("============== Operation ==============");
@@ -42,7 +44,7 @@ namespace Task_Movie_Serializer.Presentation
 
                         break;
                     case 2:
-                        AddMovie();
+                        CheckMovieList();
                         break;
                     case 3:
                         ClearMovie();
@@ -56,6 +58,8 @@ namespace Task_Movie_Serializer.Presentation
                 }
             }
 
+
+            //display movies by taking a obj of manager
             static void DisplayMovie()
             {
                 if (manager.GetMovieSize() == 0)
@@ -68,7 +72,10 @@ namespace Task_Movie_Serializer.Presentation
                     manager.PrintDetails();
                 }
             }
-            static void AddMovie()
+
+            
+            //check that wheather to add a movies list is full or not
+            static void CheckMovieList()
             {
                 if (manager.GetMovieSize() < 5)
                 {
@@ -81,7 +88,7 @@ namespace Task_Movie_Serializer.Presentation
                     Console.WriteLine();
                 }
             }
-
+            //Adding movies by Taking obj of manager
             static void AddMovies()
             {
                 Console.WriteLine("Enter the Movie ID");
@@ -100,12 +107,16 @@ namespace Task_Movie_Serializer.Presentation
 
             }
 
+
+            //Clearing all movies by taking object og manager
             static void ClearMovie()
             {
                manager.ClearMovie();
                 Console.WriteLine("All Movies Cleared.");
             }
 
+
+            //Serializer
             static void Serializer(ref bool check)
             {
                 manager.ToSerialization();

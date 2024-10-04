@@ -11,7 +11,10 @@ namespace Task_Movie_Serializer.MovieServices
 {
     class Serializer
     {
+        //Path where the account.json is stored
         private static string filePath = ConfigurationManager.AppSettings["MyPath"].ToString();
+
+        //Deserialization
         public static Movies[] DeserializeMovies()
         {
 
@@ -23,6 +26,8 @@ namespace Task_Movie_Serializer.MovieServices
             }
             return new Movies[5];
         }
+
+        //Serialization
         public static void SerializeMovies(Movies[] movies)
         {
 

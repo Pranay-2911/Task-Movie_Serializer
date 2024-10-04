@@ -8,7 +8,7 @@ namespace Task_Movie_Serializer
     {
         static void Main(string[] args)
         {
-            MovieMenu.GetMovieMenu();  
+            MovieMenu.GetMovieMenu();  //Prensentation layer
         }
     }
 }
